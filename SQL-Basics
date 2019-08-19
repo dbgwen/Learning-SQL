@@ -1,0 +1,8 @@
+SQL Basics
+  Query language for relational databases
+  Relational databases makes it easier to relate multiple tables
+
+## Creating a Table + Inserting Data
+    CREATE TABLE table_name (column_names); 
+    CREATE TABLE grocery list (name TEXT, quantity INTEGER);
+        **Typically identify the ID column first
