@@ -1,0 +1,23 @@
+## Using Google BigQuery to run standard SQL commands
+
+
+** Selecting LIKE terms
+  SELECT LONG_TITLE FROM `learnclinicaldatascience.mimic3_demo.D_ICD_DIAGNOSES` 
+  WHERE lower(LONG_TITLE) like "%diabetes%"
+  GROUP BY LONG_TITLE
+  
+  SELECT LABEL FROM `learnclinicaldatascience.mimic3_demo.D_ITEMS` 
+  WHERE lower(LABEL) like "%weight%"
+  GROUP BY LABEL
+  
+** Aggregating Data
+  SELECT count(HADM_ID) as NUMBER_OF_ADMISSIONS, min(INTIME) as EARLIEST_ADMISSION 
+  FROM `learnclinicaldatascience.mimic3_demo.ICUSTAYS`
+  
+  SELECT count(HADM_ID) as NUMBER_OF_ADMISSIONS, max(OUTTIME) as LATEST_ADMISSION 
+  FROM `learnclinicaldatascience.mimic3_demo.ICUSTAYS`
+  
+** Distinct and Grouped Data
+  SELECT SUBJECT_ID, count(distinct HADM_ID) as ADMISSION_COUNT FROM `learnclinicaldatascience.mimic3_demo.ADMISSIONS`
+  GROUP BY SUBJECT_ID
+  ORDER BY ADMISSION_COUNT   
