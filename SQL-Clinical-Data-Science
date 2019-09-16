@@ -21,3 +21,27 @@
   SELECT SUBJECT_ID, count(distinct HADM_ID) as ADMISSION_COUNT FROM `learnclinicaldatascience.mimic3_demo.ADMISSIONS`
   GROUP BY SUBJECT_ID
   ORDER BY ADMISSION_COUNT   
+
+** Joining Tables
+   SELECT * except(ROW_ID) FROM mimic3_demo.PATIENTS a
+   INNER JOIN `learnclinicaldatascience.mimic3_demo.ADMISSIONS` b using(SUBJECT_ID)
+    
+   SELECT a.SUBJECT_ID, a.GENDER, b.HADM_ID, b.ADMITTIME, b.DISCHTIME FROM `learnclinicaldatascience.mimic3_demo.PATIENTS` a
+   INNER JOIN `learnclinicaldatascience.mimic3_demo.ADMISSIONS` b using(SUBJECT_ID)
+   
+   SELECT a.SUBJECT_ID, a.HADM_ID, a.SEQ_NUM, b.SHORT_TITLE, b.LONG_TITLE FROM `learnclinicaldatascience.mimic3_demo.DIAGNOSES_ICD` a
+   INNER JOIN `learnclinicaldatascience.mimic3_demo.D_ICD_DIAGNOSES` b using(ICD9_CODE) 
+   
+** Nested Queries
+   SELECT * FROM mimic3_demo.PATIENTS 
+   WHERE SUBJECT_ID in 
+        (SELECT SUBJECT_ID FROM mimic3_demo.INPUTEVENTS_CV GROUP BY SUBJECT_ID)
+        
+        
+        
+        
+   
+   
+   
+   
+  
