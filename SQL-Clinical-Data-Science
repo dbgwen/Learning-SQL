@@ -69,6 +69,22 @@ Finally, you should know an important nuance to performing queries with joins. Y
         (SELECT SUBJECT_ID FROM mimic3_demo.INPUTEVENTS_CV GROUP BY SUBJECT_ID)
         
         
+ 2)  select LABEL from mimic3_demo.D_ITEMS 
+  where lower(LABEL) like "%weight%" 
+  group by LABEL
+  4) select min(INTIME) from mimic3_demo.ICUSTAYS
+  5) select max(OUTTIME) from mimic3_demo.ICUSTAYS
+  11) SELECT a, b FROM mimic3_demo.DIAGNOSES_ICD a 
+  INNER JOIN mimic3_demo.D_ICD_DIAGNOSES b using(ICD9_CODE) 
+  WHERE LONG_TITLE LIKE "%hypertension%"
+  12) SELECT * FROM mimic3_demo.PATIENTS 
+  WHERE SUBJECT_ID in 
+    (SELECT SUBJECT_ID FROM mimic3_demo.INPUTEVENTS_MV 
+        GROUP BY SUBJECT_ID)
+        
+        
+  10) SELECT a, b FROM mimic3_demo.DIAGNOSES_ICD a 
+  INNER JOIN mimic3_demo.D_ICD_DIAGNOSES b using(ICD9_CODE)
         
         
    
