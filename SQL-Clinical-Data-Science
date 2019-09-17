@@ -23,6 +23,11 @@
   ORDER BY ADMISSION_COUNT   
 
 ** Joining Tables
+An important SQL skill is combining two or more tables in a single query. This process is called “joining” tables. To be able to join two tables there has to be at least one variable in common across both tables.
+
+Inner joins take all rows in common between the two tables and shows all of the columns from each table. 
+   The syntax for inner joins are:
+    
    SELECT * except(ROW_ID) FROM mimic3_demo.PATIENTS a
    INNER JOIN `learnclinicaldatascience.mimic3_demo.ADMISSIONS` b using(SUBJECT_ID)
     
@@ -31,6 +36,32 @@
    
    SELECT a.SUBJECT_ID, a.HADM_ID, a.SEQ_NUM, b.SHORT_TITLE, b.LONG_TITLE FROM `learnclinicaldatascience.mimic3_demo.DIAGNOSES_ICD` a
    INNER JOIN `learnclinicaldatascience.mimic3_demo.D_ICD_DIAGNOSES` b using(ICD9_CODE) 
+   
+Left joins take all rows from the first "left" table (the one immediately after the "SELECT * FROM" statement) and adds data from the second "right" table (the one immediately after the "JOIN" statement) for all rows in common. If the left table does not have a match in the right table, the values for columns from the right table are left blank (NA).
+   The syntax for left joins are: 
+   
+   SELECT * FROM x
+    LEFT JOIN y on x.ID = y.ID
+    
+Right join simply reverses the left join. Now all rows in the second "right" table are returned, while only data that has a match from the the first "left" table is returned. 
+    The query for a right join is:
+    
+    SELCT * FROM x
+    RIGHT JOIN y on x.ID=y.ID
+    
+Finally, you should know an important nuance to performing queries with joins. You can apply all the same column and row selection approaches used when querying a single table, but when your query has a join, you have to explicitly label which table holds the particular column used. To do this, any place where you would have had the column name, you put TableName-dot-ColumnName - just like we did in the example with x.ID = y.ID
+
+    SELECT Patient.Patient_ID, Patient.Last_Name, Encounter.Visit_Date FROM Patient
+    INNER JOIN Encounter on Patient.Patient_ID = Encounter.Patient_ID
+    
+    ** Table Alias
+    SELECT p.Patient_ID, p.Last_Name, e.Visit_Date from Patient p
+    INNER JOIN Encounter e on p.Patient_ID = e.Patient_ID
+    
+    ** Column alias
+    SELECT p.Patient_ID as Patient_ID, p.Last_Name as Last_Name, e.Visit_Date as Visit_Date from Patient p
+    INNER JOIN Encounter e on p.Patient_ID = e.Patient_ID
+        
    
 ** Nested Queries
    SELECT * FROM mimic3_demo.PATIENTS 
