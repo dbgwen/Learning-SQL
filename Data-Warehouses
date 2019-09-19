@@ -15,6 +15,9 @@
   - Relationships between data represented
   - Technical stuff: data type, allowed ranges, required vs optional (missingness)
   - In actual practice it contains more data than provided above
-  - Data Model basics: Patient, provider, visit, medications
+  - Data Model basics: Patient, provider, visit, medications, labs (note: visits = encounters)
+  - Data model is important because it determines how easily data is recorded and extracted, and it controbutes to data quality
   
+## Entity Relationship Diagrams (ERD)
+  - ERDs describe how data from the entity (tables) and 
   
