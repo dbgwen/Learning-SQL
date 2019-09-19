@@ -1,0 +1,11 @@
+## Key features of a data warehouse
+  - Subject-oriented: data elements that relate to common real-world "objects" are logically interrelated
+  - Time-variant: changes in data over time can be tracked and reported on
+  - Non-volatile: data is permanent
+  - Integrated: data is comprehensive and consistent
+
+## Storing Diverse Data
+  - Data elements need to be stored (what tables, how are they connected)
+  - Same data elements need a common name
+  - Different data elements need a different name (appt vs visit, order vs results, prescription vs medication files)
+  
