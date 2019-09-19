@@ -8,4 +8,13 @@
   - Data elements need to be stored (what tables, how are they connected)
   - Same data elements need a common name
   - Different data elements need a different name (appt vs visit, order vs results, prescription vs medication files)
+  - Similar data elements need to be distinguished (clinic visit vs ED visit vs outpatient surgery visit)
+
+## Data model determines
+  - Data elements stored
+  - Relationships between data represented
+  - Technical stuff: data type, allowed ranges, required vs optional (missingness)
+  - In actual practice it contains more data than provided above
+  - Data Model basics: Patient, provider, visit, medications
+  
   
