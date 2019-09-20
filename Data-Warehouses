@@ -20,4 +20,81 @@
   
 ## Entity Relationship Diagrams (ERD)
   - ERDs describe how data from the entity (tables) and 
+  - Entity (table), Attributes (table columns), Priumary Key (PK), Not null (NN)
+  - Minimum and maxiumu allowed values, lines show connections between two entities 
+  - Visit can only involve a single patient and single provider
+
+## Clinical Data Models
+  - A simple data model might include patient, visit, diagnosis, procedure tables
+  - Example: date entered into the DATE field in the visit table will determine when a procedure occurred
+             date entered into the PROC_DATE field in the procedure table
+  - Example research question: For each patient, how many medications were filled over a period of time?
+    Visit-centric model requires four tables to be joined to construct this query
+    Patient-centric model requires three table joined to construct query 
+  - What is the average number of prescriptions written per visit?
+    Patient-centric model has three tables joined and a timestampe comparison
+    Visit-centric model two tables have to be joined to answer the question
+  - Bottom line: The data model that is better depends on the use case
+    
+## Why Common Data Models
+  - Entities (tables) in a relational database, provide informaiton about data types, allowed values, etc
+  - Relationships (connections between entities), symbols indicate how one row in a table are connected to other rows in other tables. 
+  - No one best model for any research question. 
+  - Focus on combining clinical data form multiple sources, combining data is essential for ensuring the findings represent real-world practice
+  - Why use common data models? Different Models = Different Queries = Different Results
+  - Commercial repository + Local warehouse + clinical registry
+  - Different databses store the same data in different locations, values used to store data can be different across institutions - there can be over 100 ways a lab test is emitted from automated machines across different institutions
+  - Handling the challenge of datasets combining data is using a common data model (CDM), transforms each institutions database into a single structure that is the same across sites. Specifies a single location with a table name and column name. Common Data Model = Common Query = Common Results
+  - Single SQL query can be written for a centralized dataset for all partners using the data
+  - Requires institutions to use ETL (Extraction, Transformation, and Load), which is a labor intensive process to get institutions to have a common data model used by partners
+  - Most widely deployed models: 
+        1) i2b2 (Harvard/Parnters Health)
+        2) OMOP (OHDSI Consortium)
+        3) Sentinel (US FDA)  
+        4) PCORnet (PCORI)
+  - Which CDM meets your need, or who is participating in the CDM, or implement more than one CDM to participate in more than one data networks
+
+## i2b2 (Harvard/Parnters Healthcare) https://www.i2b2.org/
+  - Open-source CDM, active use community
+  - informatics for integrating Biology and the Bedside (i2b2)
+  - Funded by the National Institute of HEalth Biomedical Science and Technology intiative grant
+  - Derived from Research Patient Data Registry (RPDR) - from the existing CDM at Partners Healthcare
+  - Moved to a non-profit i2b2, over 300 institutions, has expanded worldwide, pharmaceutical companies expanded it to include transSMART genomics platform
+  - Data Model + Web Application, query interface uses a parent-child "Folder" based terminologies/queries
+  - SHRINE: queries multiple i2b2; enable i2b2 partners to share data via web clients that sends to adapters
   
+## OMOP 
+  - Open source, active user community
+  - Managed by the OHDSI - hosted at Columbia University 
+  - Observational Medical Outcomes Partnership; started by the FDA for adverse events, left the FDA and expanded its missions
+  - 1.4 billion individuals have their data stored in a OMOP database
+  - Creators came from a multinational pharmaceutical companies, made the CDM to incorporate and integrate lots of different data sources; international participation, multiple hierarchy, multi-country terminologies
+  - Queries are posted to open source wiki for partners to use
+  - OMOP is the most complex relational model of the four CDMs discussed
+
+## Sentinel (US FDA) sentinelintiative.org
+  - Open source, active user community
+  - Managed by Harvard Pilgrim healthcare
+  - US only; 18 data partners = large healthcare systems, insurance companies, dat aggregaters
+  - Does not support a graphical user interface, manages statements as SAS statements or SQL queries
+  - Sentinel main users: FDA CDER (Center for Drug Evaluation and Research) and FDA CBER (Center for Biologics Evaluation and Research)
+  - Integrates billing and clinical data; strong data model governance
+  - Focus on rapid drug adverse event - no data on providers, not needed
+  - PopMedNet - run the same query logic on all sites
+  
+## PCORnet (PCORI) pcornet.org
+  - Open source, active user community
+  - Funded by PCORI in 2014, leverages from mini-Sentinel project
+  - Network of networks - large healthcare institutions (CDRNs), disease-specific patient registeries (PPRNs), and health plans
+  - Broad customer base - researchers, industries, Duke, Harvard, and Genetic Alliance
+  - Many features borrowed from FDA Sentinel CDM, but adds clinical features and continues to be actively expanded
+  - Uses SQL queries or SAS statements
+  - Only approved data results are sent back to PopMedNet - PCORnet uses PopMedNet
+
+
+
+
+
+
+  
+    
