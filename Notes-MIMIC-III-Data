@@ -1,0 +1,21 @@
+Medical information Mart for Intensive Care (MIMIC) https://mimic.physionet.org/about/mimic/
+  - Developed my MIT lab, derived from patients admitted to ICUs
+  - Single hospital many types of ICU, 53, 423 hospital admissions from 2001-2012, neonates and adults
+  - Have released a subset of data to the public
+  - Structured and unstructured data elements 
+  - Processed to remove all PHI, dates are replaced with fictitious future dates
+  - 100 patient dataset is used for the course
+
+Online MIMIC Dictionary describes all MIMIC tables, but not all the columns in the tables
+Documentation provides information on the clinical system used to source the data
+MIMIC does not harmonize similar data elements from different clinical systems, in this case CareVue vs MetaVision, as would a complete data warehouse
+
+About MIMIC Variables
+  - Values in the column subject_id always refer to a specific patient - can be used in join across more than 2 tables
+  - All tables have a row_id - do not use row_id in queries !!
+  - Subject_id = patient
+  - Hadm_id = admission
+  - Icustay_id = ICU episode
+  - Five tables that start with D_ are dictionary tables,, convert codes into meaningful text
+ Examples: 
+  - 
