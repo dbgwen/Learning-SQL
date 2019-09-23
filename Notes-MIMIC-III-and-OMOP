@@ -40,4 +40,17 @@ OMOP Data Model
   - concept_id are OMOP standard values, harmonizes local-to-network 
   - hierarchies only available for standard terminologies, not source values
   
+Querying OMOP Data
+  - Standardize clinical data, health system data, health economics, dervied elements, meta-data, and vocabularies
+  - source_value and source_concept_id = raw MIMIC-III values; source_concept_id = original MIMIC code and concept_id = OMOP's standard code
+  - concept_id are value for OMOP standard concepts --> use for queries
+  - concept_ancestor = table store concept hierarchies, use parent (general) concept as ancestor concept_id
+  - Atlas tool provides graphical format of the parent and children concepts 
+  
+Key things to know about OMOP
+  - visit_occurence = admissions
+  - condition_occurrence = diagnoses
+  - drug_exposure = medication prescription of fulfillment
+  - How many patients? SELECT count(distinct person_id) AS num_pts FROM mimic3_demo_omop_c.person
+  - How many admissions? SELECT count(distinct visit)occurrence_id) AS num_admissions FROM mimic3_demo_omop_c.visit_occurrence
   
