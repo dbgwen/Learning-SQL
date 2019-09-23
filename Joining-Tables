@@ -1,0 +1,17 @@
+## JOINing Tables
+    
+    Inner Join - only joins tables with mathcing variables
+      SELECT customers.name, orders.item FROM customers JOIN orders ON customers.id = orders.customer_id;
+     
+      SELECT persons.name, hobbies.name FROM persons JOIN hobbies ON persons.id = hobbies.person_id; 
+
+      SELECT persons.name, hobbies.name FROM persons JOIN hobbies ON persons.id = hobbies.person_id WHERE persons.name='Bobby McBobbyFace';
+      
+    Outer Join - the left tells SQL to retain every row from the left table (the one after FROM; and retain the rows even if there is no match in the table; the right outer join keep severything form the table on the right of the FROM command; Full Outer Join - matches rows on the right and left side and will fill in NULLS if missing
+
+      SELECT customers.name, orders.item FROM customers LEFT OUTER JOIN orders ON customers.id = orders.customer_id;
+      SELECT customers.name, customers.email, orders.item, orders.price FROM customers LEFT OUTER JOIN orders ON customers.id = orders.customer_id;
+      
+      
+    
+      
