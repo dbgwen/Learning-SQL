@@ -19,7 +19,12 @@
   ** Self-Joins - joining columns to each other from a table
            SELECT id, first_name, last_name, buddy_id FROM students; 
            SELECT first_name, last_name, buddies.email FROM students JOIN students buddies ON students.buddy_id = buddies.id;
-           SELECT sequel.title, movies.title FROM movies LEFT OUTER JOIN movies sequel ON sequel.sequel_id = movies.id;
-  
+           SELECT movies.title as Title, sequel.title as Sequel FROM movies LEFT OUTER JOIN movies sequel ON movies.sequel_id = sequel.id; 
+
   ** Combining Multiple Tables
-            
+           SELECT a.title, b.title FROM project_pairs JOIN student_projects a 
+           ON project_pairs.project1_id = a.id
+           JOIN student_projects b
+           ON project_pairs.project2_id = b.id
+           
+           SELECT a.fullname, b.name FROM persons a JOIN hobbies b ON a.id = b.person_id;
