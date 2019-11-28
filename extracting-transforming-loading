@@ -1,0 +1,6 @@
+The task of extraction and transformation and loading or ETL which is necessary to convert clinical data which is available in a local data model into a format that conforms to a common data model that can support large scale multi-institutional real world data analytics.
+
+  - Extraction phase focuses on getting data out of the source database
+  - Transformation phase focuses on changes needed to the data elements to divert from the local structures to the common data model structures
+  - Loading phase focuses on getting data into the target database. We focus in this module only on the transformation step.
+
