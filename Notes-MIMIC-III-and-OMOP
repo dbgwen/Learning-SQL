@@ -54,3 +54,15 @@ Key things to know about OMOP
   - How many patients? SELECT count(distinct person_id) AS num_pts FROM mimic3_demo_omop_c.person
   - How many admissions? SELECT count(distinct visit)occurrence_id) AS num_admissions FROM mimic3_demo_omop_c.visit_occurrence
   
+MIMIC vs OMOP
+  - MIMIC is ICU only, little info about hospitalization, admission-centric, uses seperate tables for each data source
+  - OMOP is for hospital, clinics, and many care settings, uses individual table to store data that are merged form multiple data sources
+  - MIMIC only stores original values. OMOP stores original values in the source_value and source_concept_id fields
+  - PATIENTS in MIMIC; PERSON in OMOP
+  - Computer abstractions: MIMIC does not use computed abstractions; OMOP uses computer abstractions for observation period, drug era, condition_Era, and Cohot (a gorup of patients who are common set of characteristics
+  - MIMIC has no hierarchy for terms OMOP uses hirarchies to organize terms
+  - MIMIC is optimize the integrity of original data sources - allows data science to make decisions about data harmonization
+  - OMOP is optimized to support large international big networks, data transformation is done once, data scientists accept whatever decisions were made to map into standardized models
+  
+  
+  
