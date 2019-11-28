@@ -64,5 +64,8 @@ MIMIC vs OMOP
   - MIMIC is optimize the integrity of original data sources - allows data science to make decisions about data harmonization
   - OMOP is optimized to support large international big networks, data transformation is done once, data scientists accept whatever decisions were made to map into standardized models
   
-  
+OHDSI is the group that support the OMOP data
+  - Innovation, Reproducibility, Community, Collaboration, Openness, Beneficence
+  - Video tutorials for OMOP CDM (R packages)
+ 
   
