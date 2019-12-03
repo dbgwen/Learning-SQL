@@ -3,4 +3,63 @@ The task of extraction and transformation and loading or ETL which is necessary 
   - Extraction phase focuses on getting data out of the source database
   - Transformation phase focuses on changes needed to the data elements to divert from the local structures to the common data model structures
   - Loading phase focuses on getting data into the target database. We focus in this module only on the transformation step.
+  
+ Structural vs Terminology Mapping
+ 
+  - Structural Mapping (syntactic mapping) - joins, data types
+  - Terminiology mapping (semantic mapping) - formats, value sets, missing/null values
+  
+  Common data type mappings: date to string, number to string, integer to numeric or float
+  
+  Example: taking five terms (m, f, u, n/a, not asked) for gender to three (male, female, unknown) **note you can lose information when you map terms
+  
+ Components of ETL Processes
+  1. Data profiling - understanding the data in a source system, what are the values that are present in the source system that I can use to populate the target clinical data model
+  2. Data mapping - moving data from source location to target location
+  3. Terminology mapping - converting codes/values used in source to codes/values allowed in target
+  
+Data Profiling with White Rabbit - open source tool 
+  Created by OHDSI community 
+  Locations tab - tell it what database you are using
+  Scans tab - tell it what tables to scan
+  For example, you can map between MIMIC and OMOP datasets with White Rabbit
+  
+  White Rabbit lists values found in a table/column and the number of times that value is used in a source database. This profiling information can inform the ETL process in the follow ways: 
+  - A data value used in high frequency may indicate a default value
+  - A high frequency for NULL or empty may indicate a data quality issue
+  - The absence of any missing values may indicate a field that is auto-populated by the application
+  
+Data Mapping is focused on manipulating data so it fits with the target system. Data mapping may result in:
+  - One or more source table(s) mapping to one target table
+  - One or more target tables not being mapping to any source tables
+  - One source table table mapping to one or more target table(s)
+  - One or more source tables not being mapped to any target tables
+  
+Successfully performing Data Mapping requires:
+  - Knowledge of the source and target data types in each table/column
+  - Knowledge of the source and target data model tables and columns
+  
+Terminology Mapping - converting local codes to standard codes
+  - Terminology = codes/values (ICD-10 codes, SNOMED, etc)
+  - Source database has differing terms than the target terms
+  - Need to determine when source terms are close enought o target terms
+  - Terminology mapping can lose some information
+  - White Rabbit provides a list of terms from the source database
+  - Target terms are from the CDM specifications, Rabbit in a Hat can do mapping specification
+  
+Terminology mapping uses the results from data profiling tools applied to the source database. This information is used to support the terminology mapping task by:
+  - Terminology mapping can be deferred on columns that have a high rate of missing values
+  - Terminology mapping can avoid mapping ill-formed or illogical values
+  - Terminology mapping can focus on terms that are frequently used
+  
+Many terminologies have “domains”, such as “diagnoses”, “medications”, “laboratory tests”, and “demographics”, which specify the context in which these terms should be used. This information can be used in the terminology mapping task by:
+  - Domains allow for terms to be used in multiple mappings
+  - Domains ensure that mappings are consistent with the CDM ETL specifications
+  - Domains prevent mapping to terms with identical text descriptions that are used in different contexts
+  
+  Process of terminology mapping requires some creativity
+  
+
+  
+  
 
