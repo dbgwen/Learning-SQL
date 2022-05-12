@@ -1,0 +1,89 @@
+## DISTINCT
+
+   Used to return unique values in the output
+   It filters out all duplicate values in the specified column(s)
+   
+   SELECT <variable> 
+   FROM <table>;
+   
+   SELECT DISTINCT <variable>  
+   FROM <table>;
+   
+## WHERE
+
+   Restrict query results using the WHERE clause in order to obtain only the information we want
+   
+   SELECT *
+   FROM movies
+   WHERE imdb_rating > 8;
+   
+    1. WHERE clause filters the result set to only include rows where the following condition is true
+    2. imdb_rating > 8 is the condition. Here, only rows with a value greater than 8 in the imdb_rating column will be returned.
+
+   The > is an operator. Operators create a condition that can be evaluated as either true or false.
+
+    Comparison operators used with the WHERE clause are:
+
+        = equal to
+        != not equal to
+        > greater than
+        < less than
+        >= greater than or equal to
+        <= less than or equal to
+
+## LIKE
+   
+   Useful operator when you want to compare similar values
+   LIKE is a special operator used with the WHERE clause to search for a specific pattern in a column
+   
+   SELECT * 
+   FROM movies
+   WHERE name LIKE 'Se_en';
+  
+   1. name LIKE 'Se_en' is a condition evaluating the name column for a specific pattern
+   2. Se_en represents a pattern with a wildcard character
+   
+ * Wildcards
+ 
+   The _ means you can substitute any individual character here without breaking the pattern
+   The percentage sign % is another wildcard character that can be used with LIKE
+   
+   % is a wildcard character that matches zero or more missing letters in the pattern. For example:
+
+    A% matches all movies with names that begin with letter ‘A’
+    %a matches all movies that end with ‘a’
+
+    We can also use % both before and after a pattern: '%man%'
+   
+    To grab movie titles that start with 'The'
+    SELECT * 
+    FROM movies
+    WHERE name LIKE 'The %';
+   
+## IS NULL / IS NOT NULL
+
+   It is not possible to test for NULL values with comparison operators, such as = and !=
+   
+   SELECT name
+   FROM movies 
+   WHERE imdb_rating IS NOT NULL;
+   
+## BETWEEN
+
+   Used in a WHERE clause to filter the result set within a certain range
+   It accepts two values that are either numbers, text or dates
+   BETWEEN goes up to the second value - doesn't necessarily include the second 
+   BETWEEN two numbers is inclusive of the second number 
+   
+   SELECT *
+   FROM movies
+   WHERE name BETWEEN 'A' AND 'J';
+   
+## AND
+
+   
+   
+   
+   
+   
+   
