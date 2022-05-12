@@ -7,6 +7,7 @@ SQL was developed by IBM in the 1970s, originally called SEQUEL. It was then cha
       to create, update, and administer a relational database
     - Most relational database management systems use the SQL language to access the database
     - MySQL, PostgreSQL, Oracle DB, SQL Server, SQLite
+    - Common data types: Integer - a whole number, Text - a text string, Date - a date. Real - a decimal number
   
  * Relational Databases 
     
