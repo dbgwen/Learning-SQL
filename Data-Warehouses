@@ -1,3 +1,14 @@
+## Database Index
+  - Indexes are a powerful tool used in the background of a database to speed up querying
+  - Indexes power queries by providing a method to quickly lookup the requested data
+  - An index in a database is very similar to an index in the back of a book
+  
+    In a database, data is stored in rows which are organized into tables
+    Each row has a unique key which distinguishes it from all other rows and those keys are stored in an index for quick retrieval
+    
+      CREATE INDEX <index_name>
+      ON <table_name> (column1, column2, ...)
+
 ## Key features of a data warehouse
   - Subject-oriented: data elements that relate to common real-world "objects" are logically interrelated
   - Time-variant: changes in data over time can be tracked and reported on
