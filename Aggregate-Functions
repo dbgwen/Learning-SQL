@@ -1,0 +1,33 @@
+
+COUNT(): count the number of rows
+    
+      SELECT COUNT(*)
+      FROM table_name;
+    
+SUM(): the sum of the values in a column
+
+      SELECT SUM(column_name)
+      FROM table_name;
+
+MAX()/MIN(): the largest/smallest value
+
+      SELECT MAX(column_name)
+      FROM table_name;
+
+AVG(): the average of the values in a column
+
+      SELECT AVG(column_name)
+      FROM table_name;
+
+ROUND(): round the values in the column
+
+      SELECT ROUND(column_name, 0)
+      FROM table_name;
+      
+      SELECT ROUND(AVG((column_name), 0)
+      FROM table_name; 
+      
+      
+GROUP BY
+
+
