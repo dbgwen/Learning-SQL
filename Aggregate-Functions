@@ -30,4 +30,41 @@ ROUND(): round the values in the column
       
 GROUP BY
 
+    - GROUP BY is a clause in SQL that is used with aggregate functions
+    - It is used in collaboration with the SELECT statement to arrange identical data into groups
+    - The GROUP BY statement comes after any WHERE statements, but before ORDER BY or LIMIT
+    
+    SELECT year,
+    AVG(imdb_rating)
+    FROM movies
+    GROUP BY year
+    ORDER BY year;
+    
+    SQL lets us use column reference(s) in our GROUP BY that will make our lives easier.
+    - 1 is the first column selected
+    - 2 is the second column selected
+    - 3 is the third column selected
 
+    SELECT column_one, 
+        column_two,
+        AVG(column_three)
+    FROM table_name
+    GROUP BY 1, 2;
+
+HAVING
+
+    - HAVING is very similar to WHERE - for all types of WHERE clauses can be used with HAVING
+    - Filter which groups to include and which to exclude
+    - When we want to limit the results of a query based on values of the individual rows, use WHERE
+    - When we want to limit the results of a query based on an aggregate property, use HAVING
+    - HAVING statement always comes after GROUP BY, but before ORDER BY and LIMIT
+
+        SELECT year,
+           genre,
+           COUNT(name)
+        FROM movies
+        GROUP BY 1, 2
+        HAVING COUNT(name) > 10;
+
+
+    
