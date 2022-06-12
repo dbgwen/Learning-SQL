@@ -59,12 +59,12 @@ HAVING
     - When we want to limit the results of a query based on an aggregate property, use HAVING
     - HAVING statement always comes after GROUP BY, but before ORDER BY and LIMIT
 
-        SELECT year,
-           genre,
-           COUNT(name)
-        FROM movies
+        SELECT column_name,
+           column_name,
+           COUNT(column_name)
+        FROM table_name
         GROUP BY 1, 2
-        HAVING COUNT(name) > 10;
+        HAVING COUNT(column_name) > 10;
 
 
     
