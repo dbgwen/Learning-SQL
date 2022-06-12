@@ -67,4 +67,8 @@ HAVING
         HAVING COUNT(column_name) > 10;
 
 
-    
+ Aggregate functions combine multiple rows together to form a single value of more meaningful information
+
+    - GROUP BY is a clause used with aggregate functions to combine data from one or more columns
+    - HAVING limit the results of a query based on an aggregate property
+
