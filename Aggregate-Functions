@@ -72,6 +72,7 @@ HAVING
     - GROUP BY is a clause used with aggregate functions to combine data from one or more columns
     - HAVING limit the results of a query based on an aggregate property
 
+## Example Code
 
     SELECT CASE
       WHEN url LIKE '%github%' THEN 'GitHub'
@@ -82,3 +83,29 @@ HAVING
      COUNT(*) 
      FROM hacker_news
      GROUP BY 1; 
+
+Note: SQLite comes with a strftime() function - a very powerful function that allows you to return a formatted date
+    
+    SELECT timestamp,
+        strftime('%H', timestamp) ## this returns the hour, HH, of the timestamp column
+    FROM hacker_news
+    GROUP BY 1
+    LIMIT 20;
+    
+    if timestamp format is YYYY-MM-DD HH:MM:SS
+    
+        %Y returns the year (YYYY)
+        %m returns the month (01-12)
+        %d returns the day of the month (1-31)
+        %H returns 24-hour clock (00-23)
+        %M returns the minute (00-59)
+        %S returns the seconds (00-59)
+
+        SELECT strftime('%H', timestamp) AS 'Hour', 
+          ROUND(AVG(score), 1) AS 'Average Score', 
+          COUNT(*) AS 'Number of Stories'
+        FROM hacker_news
+        WHERE timestamp IS NOT NULL
+        GROUP BY 1
+        ORDER BY 1;
+    
