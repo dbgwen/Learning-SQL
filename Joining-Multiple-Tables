@@ -36,7 +36,34 @@ SQL is a relational databse that allows a user to work with multiple tables of d
   
   When we perform a simple JOIN (often called an inner join) our result only includes rows that match our ON condition
   
+* Left JOIN
+
+  The final result will keep all rows of the first table but will omit the un-matched row from the second table
   
+    SELECT *
+    FROM table1
+    LEFT JOIN table2
+      ON table1.c2 = table2.c2;
+    
+    1. The first line selects all columns from both tables.
+    2. The second line selects table1 (the “left” table)
+    3. The third line performs a LEFT JOIN on table2 (the “right” table)
+    4. The fourth line tells SQL how to perform the join (by looking for matching values in column c2).
+
+  Add a WHERE clause to the above query to include the null values for the left table
+  
+  * Primary Key
+  
+    Primary keys have a few requirements:
+    - None of the values can be NULL
+    - Each value must be unique (i.e., you can’t have two customers with the same customer_id in the customers table)
+    - A table can not have more than one primary key column
+    
+    When a Primary Key appears in a different table is it called a 'Foreign Key'
+    Note: The most common types of joins will be joining a foreign key from one table with the primary key from another table
+    
+    
+
 
 
 
