@@ -1,0 +1,35 @@
+1 - Get a feel for the data table
+    
+    SELECT *
+    FROM data_table
+    LIMIT 10;
+    
+2 - Look at specific variable
+
+    SELECT var1, var2, var3
+    FROM data_table
+    WHERE var3 == 1234;
+    
+3 - Find specific terms in a variable
+
+    SELECT *
+    FROM data_table
+    WHERE var1 = 'Name'
+        OR var1 LIKE '% word %';
+        
+    SELECT var2
+    FROM data_table
+    WHERE var2 LIKE '%temp_email.com';
+        
+4 - Find specific beginning of a variable
+
+    SELECT var2, var3
+    FROM data_table
+    WHERE var3 LIKE '10.%'
+    
+5 - Find specifics of two variables
+
+    SELECT *
+    FROM data_table
+    WHERE var3 LIKE '120.%' 
+        AND var1 LIKE 'John%';
