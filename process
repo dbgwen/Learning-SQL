@@ -33,3 +33,10 @@
     FROM data_table
     WHERE var3 LIKE '120.%' 
         AND var1 LIKE 'John%';
+        
+Finding Age 
+
+    SELECT strftime('%Y', created_at) - strftime('%Y', birthday) AS 'Age'
+    FROM users; 
+    
+    
